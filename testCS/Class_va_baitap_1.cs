@@ -12,8 +12,8 @@ namespace newTest
 		{
 			//#bai 1
 			UserInformation user = new UserInformation();
-			user.GetUserInformation();
-			user.PrintUserInformation();
+			//user.GetUserInformation();
+			//user.PrintUserInformation();
 		}
 
 		public static void Bai2()
@@ -23,10 +23,10 @@ namespace newTest
 			UserInformation user3 = new UserInformation("User 3", 15, 003);
 			List<UserInformation> users = new List<UserInformation>() { user1, user2, user3 };
 			Console.WriteLine("List user sorted by Age:");
-			List<UserInformation> sortedUsersByAge = users.OrderBy(x => x.userAge).ToList();
+			List<UserInformation> sortedUsersByAge = users.OrderBy(x => x.UserAge).ToList();
 			Console.WriteLine(String.Join(Environment.NewLine, sortedUsersByAge));
 			Console.WriteLine("\n\nList user sorted by ID:");
-			List<UserInformation> sortedUsersByID = users.OrderByDescending(x => x.userID).ToList();
+			List<UserInformation> sortedUsersByID = users.OrderByDescending(x => x.UserID).ToList();
 			Console.WriteLine(String.Join(Environment.NewLine, sortedUsersByID));
 		}
 		public static void Todo()
