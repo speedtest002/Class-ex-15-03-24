@@ -14,5 +14,17 @@ namespace newTest
 			UserInformation user3 = new UserInformation("User 3", 43, 003);
 			Console.WriteLine($"{user3}");
 		}
+		public static void Bai2_2() 
+		{
+			BankAccount alexAccount = new BankAccount("alex", 20, 1111, 1000, "alex123");
+			//Nhap dung password
+			Console.WriteLine("Please enter your password");
+			alexAccount.VerifyPassword(Console.ReadLine());
+			Console.WriteLine(alexAccount.CalculateInterestMoney());
+			//Nhap sai password
+			Console.WriteLine("Please enter your password");
+			alexAccount.VerifyPassword(Console.ReadLine());
+			Console.WriteLine(alexAccount.CalculateInterestMoney());
+		}
 	}
 }
