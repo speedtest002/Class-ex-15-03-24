@@ -8,48 +8,56 @@ namespace testCS
 {
 	internal class UserInformation
 	{
-		public string userName;
-		public int userAge;
-		public uint userID;
+		private string userName;
+		private int userAge;
+		private uint userID;
 
-		public void GetUserInformation()
+		public string UserName
 		{
-			string userAgeInput;
-			string userIDInput;
-			//User name input
-			Console.Write("Please input User Name: ");
-			userName = Console.ReadLine();
-			//User Age Input
-			Console.Write("Please input Age for {0}: ", userName);
-			userAgeInput = Console.ReadLine();
-			while (!int.TryParse(userAgeInput, out userAge))
+			get { return userName; }
+			set 
 			{
-				Console.WriteLine("Invalid Age input. Please enter a valid integer.");
-				Console.Write("Please input Age for {0}: ", userName);
-				userAgeInput = Console.ReadLine();
-			}
-			//User ID Input
-			Console.Write("Please input ID for {0}: ", userName);
-			userIDInput = Console.ReadLine();
-			while (!uint.TryParse(userIDInput, out userID))
-			{
-				Console.WriteLine("Invalid ID input. Please enter a valid unsigned integer.");
-				Console.Write("Please input ID for {0}: ", userName);
-				userIDInput = Console.ReadLine();
+				userName = value;
 			}
 		}
-		public void PrintUserInformation()
+		public int UserAge
 		{
-			Console.Write($"User Name:\t{userName}\nAge:\t\t{userAge}\nID:\t\t{userID}");
+			get { return userAge; }
+			set
+			{
+				if(value > 18)
+				{
+					userAge = value;
+				}
+				else
+				{
+					throw new ArgumentException("Error!\r\nUser’s age must be larger than 18.");
+				}
+			}
+		}
+		public uint UserID
+		{
+			get { return userID; }
+			set
+			{
+				if (!(value < 1000 || value > 9999))
+				{
+					userID = value;
+				}
+				else
+				{
+					throw new ArgumentException("Error! ID must be between 1000 and 9999.");
+				}
+			}
 		}
 
 		public UserInformation()
-		{ }
-		public UserInformation(string userName, int userAge, uint userID)
+		{		}
+		public UserInformation(string name, int age, uint id)
 		{
-			this.userName = userName;
-			this.userAge = userAge;
-			this.userID = userID;
+			UserName = name;
+			UserAge = age;
+			UserID = id;
 		}
 		public override string ToString()
 		{
