@@ -15,6 +15,7 @@ namespace newTest
 				//Bai1();
 				//Bai2();
 				//Bai1_2();
+				Bai2_2();
 
 			}
 			catch (Exception ex)
