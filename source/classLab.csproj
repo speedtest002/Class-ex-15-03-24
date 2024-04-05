@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BankAccount.cs" />
+    <Compile Include="kethua_3.cs" />
     <Compile Include="Class_va_baitap_1.cs" />
     <Compile Include="propeties_2.cs" />
     <Compile Include="test.cs" />
