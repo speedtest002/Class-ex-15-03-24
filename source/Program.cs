@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Math;
+using System;
 
 namespace classLab
 {
@@ -8,12 +9,24 @@ namespace classLab
       {
          try
          {
-            bai1_3();
+            Lab3_2();
          }
-         catch (Exception ex)
+         catch (AccessDeniedException)
          {
-            Console.WriteLine(ex.Message);
+            Console.WriteLine("Access denied!");
          }
+         catch (OverflowException ex)
+         {
+            Console.WriteLine(ex.StackTrace);
+         }
+         //catch (UserAccountException ex)
+         //{
+         //    Console.WriteLine(ex.Message);
+         //}
+         // catch (Exception ex)
+         //{
+         //    Console.WriteLine(ex.Message);
+         //}
          Console.ReadLine();
       }
    }

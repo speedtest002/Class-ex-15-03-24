@@ -7,6 +7,7 @@ namespace classLab
       private string userName;
       private int userAge;
       private uint userID;
+      private double baseSalary;
 
       public string UserName
       {
@@ -27,7 +28,8 @@ namespace classLab
             }
             else
             {
-               throw new ArgumentException("Error!\r\nUser’s age must be larger than 18.");
+               throw new OverflowException();
+               //throw new UserAccountException();
             }
          }
       }
@@ -42,11 +44,11 @@ namespace classLab
             }
             else
             {
-               throw new ArgumentException("Error! ID must be between 1000 and 9999.");
+               throw new OverflowException();
+               //throw new UserAccountException();
             }
          }
       }
-
       public UserInformation()
       { }
       public UserInformation(string name, int age, uint id)
@@ -57,8 +59,21 @@ namespace classLab
       }
       public override string ToString()
       {
-         //return "[" + userName + "," + userAge + "," + userID + "]";
          return String.Format($"[{userName}, {userAge}, {userID}]");
+      }
+      //lab3
+      public double BaseSalary
+      {
+         get { return baseSalary; }
+         set { baseSalary = value; }
+      }
+      public UserInformation(string name, int age, uint id, double baseSalary) : this(name, age, id)
+      {
+         BaseSalary = baseSalary;
+      }
+      public virtual double GetSalary()
+      {
+         return BaseSalary;
       }
    }
 }
