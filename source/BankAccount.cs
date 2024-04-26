@@ -48,7 +48,7 @@ namespace classLab
       }
       public void CheckAccessPermission()
       {
-         if (!isPasswordVerified) throw new AccessDeniedException();         
+         if (!isPasswordVerified) throw new AccessDeniedException();
       }
    }
 }

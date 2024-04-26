@@ -60,7 +60,7 @@ namespace classLab
             Console.WriteLine($"{user.UserName}: {user.GetSalary()}\n");
          }
       }
-   
+
       public static void Lab3_2()
       {
          BankAccount alexAccount = null;
