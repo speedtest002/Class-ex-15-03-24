@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="LAB4.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LAB4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+   mc:Ignorable="d"
+    Background="#03c1f4">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+            
+         <TextBlock x:Name="ErrorTextBlock" Foreground="#FFE0FF00" Margin="0, 0, 0, 10" Text="Error Message" Visibility="Collapsed" HorizontalAlignment="Center"/>
+         <TextBox x:Name="IQTextBox" PlaceholderText="Nhập chỉ số IQ" Width="200" Margin="0, 0, 0, 20"/>
+         <Button x:Name="ClickMeButton" Foreground="Black" Content="Test" Width="200" HorizontalAlignment="Center" Margin="0, 0, 0, 20" Click="ClickMeButton_Click" BorderBrush="Black" BorderThickness="1" Windows10version1809:CornerRadius="5"/>
+         <TextBlock x:Name="DisplayTextBlock" Foreground="Black" Width="200"/>
+        </StackPanel>
+   </Grid>
+</Page>
