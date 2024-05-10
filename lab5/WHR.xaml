@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="lab5.WHR"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:lab5"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="DarkCyan">
+
+   <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+      <Grid.RowDefinitions>
+         <RowDefinition Height="30px"/>
+         <RowDefinition Height="30px"/>
+         <RowDefinition Height="30px"/>
+         <RowDefinition Height="30px"/>
+         <RowDefinition Height="30px"/>
+         <RowDefinition Height="30px"/>
+         <RowDefinition Height="30px"/>
+         <RowDefinition Height="30px"/>
+      </Grid.RowDefinitions>
+
+      <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="auto"/>
+         <ColumnDefinition Width="300px"/>
+      </Grid.ColumnDefinitions>
+
+      <TextBlock Grid.Row="0" Grid.Column="0" Text="Vòng eo (cm)"/>
+      <TextBox Grid.Row="0" Grid.Column="1" Name="vongEoTextBox"/>
+
+      <TextBlock Grid.Row="1" Grid.Column="0" Text="Vòng hông (cm)"/>
+      <TextBox Grid.Row="1" Grid.Column="1" Name="vongHongTextBox"/>
+
+      <TextBlock Grid.Row="2" Grid.Column="0" Text="Giới tính"/>
+      <ComboBox Grid.Row="2" Grid.Column="1" Name="gioiTinh">
+         <ComboBoxItem Content="Nam"/>
+         <ComboBoxItem Content="Nữ"/>
+      </ComboBox>
+
+      <TextBlock Grid.Row="3" Grid.Column="0" Text="Chỉ số WHR"/>
+      <TextBlock Grid.Row="3" Grid.Column="1" Name="whrTextBox"/>
+
+      <TextBlock Grid.Row="4" Grid.Column="0" Text="Mức nguy hiểm đến sức khỏe"/>
+      <TextBlock Grid.Row="4" Grid.Column="1" Name="nguyHiemTextBox"/>
+
+      <TextBlock Grid.Row="5" Grid.Column="0" Text="Hình dạng cơ thể"/>
+      <TextBlock Grid.Row="5" Grid.Column="1" Name="hinhDangTextBox"/>
+      
+      <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Name="tinhToanButton" Click="TinhToanButton_Click" Content="Tính toán"/>
+      <TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Name="ErrorTextBlock" Foreground="Yellow" Margin="0, 0, 0, 10" Text="Error Message" Visibility="Collapsed" />
+   </Grid>
+</Page>  
