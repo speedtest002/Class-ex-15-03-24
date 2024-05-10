@@ -78,7 +78,7 @@ namespace lab5
                      nguyHiemTextBox.Text = "Thấp";
                      hinhDangTextBox.Text = "Quả Lê";
                      break;
-                  case double value when value >= 0.81 && value <= 0.85:
+                  case double value when value >= 0.80 && value <= 0.85:
                      nguyHiemTextBox.Text = "Trung Bình";
                      hinhDangTextBox.Text = "Quả Bơ";
                      break;
