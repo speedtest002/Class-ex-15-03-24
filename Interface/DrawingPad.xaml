@@ -17,7 +17,7 @@
             <RowDefinition Height="15*"/>
             <RowDefinition Height="*"/>
          </Grid.RowDefinitions>
-         <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Drawing Pad" FontSize="48" FontFamily="Segoe UI Light"/>
+         <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Drawing Pad Lab 9 Abstract class" FontSize="48" FontFamily="Segoe UI Light" Foreground="DarkCyan" />
          <Canvas x:Name="drawingCanvas" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Tapped="drawingCanvas_Tapped" RightTapped="drawingCanvas_RightTapped">
             <Canvas.Background>
                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">

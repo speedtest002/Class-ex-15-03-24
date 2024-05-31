@@ -123,6 +123,7 @@
     <Compile Include="DrawingPad.xaml.cs">
       <DependentUpon>DrawingPad.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DrawingShape.cs" />
     <Compile Include="IColor.cs" />
     <Compile Include="IDraw.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -10,43 +10,23 @@ using Windows.UI.Xaml.Controls;
 
 namespace Interface
 {
-   internal class Circle : IDraw, IColor
+   internal class Circle : DrawingShape, IDraw, IColor
    {
-      private int diameter;
-      private int locX = 0, locY = 0;
-      private Ellipse circle = null;
-      public Circle(int diameter)
+
+      public Circle(int sideLength) :base(sideLength)
       {
-         this.diameter = diameter;
       }
-      public void SetLocation(int xCoord, int yCoord)
+      public override void Draw(Canvas canvas)
       {
-         this.locX = xCoord;
-         this.locY = yCoord;
-      }
-      public void Draw(Canvas canvas)
-      {
-         if (this.circle != null)
+         if (this.shape != null)
          {
-            canvas.Children.Remove(this.circle);//Xóa đối tượng
+            canvas.Children.Remove(this.shape);//Xóa đối tượng
          }
          else
          {
-            this.circle = new Ellipse();
+            this.shape = new Ellipse();
          }
-         this.circle.Height = this.diameter;
-         this.circle.Width = this.diameter;
-         Canvas.SetTop(this.circle, this.locY);
-         Canvas.SetLeft(this.circle, this.locX);
-         canvas.Children.Add(this.circle);
-      }
-      public void SetColor(Color color)
-      {
-         if (this.circle != null)
-         {
-            SolidColorBrush brush = new SolidColorBrush(color);
-            this.circle.Fill = brush;
-         }
+         base.Draw(canvas);
       }
    }
 }
