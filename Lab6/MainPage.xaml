@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="Lab6.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Lab6"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="DarkCyan">
+   <Grid>
+      <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+         <TextBox x:Name="useNameTextBox" PlaceholderText="Nhập Username" Width="200" Margin="0, 0, 0, 10"/>
+         <TextBox x:Name="userIDTextBox" PlaceholderText="Nhập User ID" Width="200" Margin="0, 0, 0, 10"/>
+         <TextBlock x:Name="sliderValueTextBlock" Text="{Binding ElementName=userAgeSlider, Path=Value, Mode=OneWay}" HorizontalAlignment="Center"/>
+         <Slider x:Name="userAgeSlider" Minimum="0" Maximum="100" Value="18" />
+         <Button x:Name="createButton" Content="Create" Margin="0, 0, 0, 10" Width="200" Click="createButton_Click"/>
+         <TextBlock x:Name="inforTextBlock" Text="{x:Bind ViewModel.DefaultUser.OneLineInformation }" HorizontalAlignment="Center" Margin="0, 0, 0, 10"/>      </StackPanel>
+   </Grid>
+</Page>
