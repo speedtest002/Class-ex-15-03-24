@@ -48,8 +48,8 @@ namespace lab10
             {
                textBlock.Text = "?";
             }
-               timer.Stop();
-            if(highestScore > tenthsOfSecondsElapsed)
+            timer.Stop();
+            if (highestScore > tenthsOfSecondsElapsed)
             {
                highestScore = tenthsOfSecondsElapsed;
                highestScoreTextBlock.Text = (highestScore / 10F).ToString("0.0s");
@@ -90,48 +90,54 @@ namespace lab10
          matchesFound = 0;
          pointTextBlock.Text = matchesFound.ToString();
       }
-   
+
       TextBlock lastTextBlockClicked;
       string lastClick;
       bool findingMatch = false;
+      //private async void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
+      private bool canClick = true;
+      private bool gameStartButtonClicked = false;
+
       private async void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
       {
-         TextBlock textBlock = sender as TextBlock;
-         if (!findingMatch)
+         if (canClick && gameStartButtonClicked)
          {
-
-            lastClick = randomAnimalList[Grid.GetColumn(textBlock) + Grid.GetRow(textBlock) * 4];
-            textBlock.Text = lastClick;
-            //textBlock.Visibility = Visibility.Collapsed;
-
-            lastTextBlockClicked = textBlock;
+            canClick = false;
+            TextBlock textBlock = sender as TextBlock;
+            if (!findingMatch)
+            {
+               lastClick = randomAnimalList[Grid.GetColumn(textBlock) + Grid.GetRow(textBlock) * 4];
+               textBlock.Text = lastClick;
+               lastTextBlockClicked = textBlock;
+               findingMatch = true;
+            }
+            else if (randomAnimalList[Grid.GetColumn(textBlock) + Grid.GetRow(textBlock) * 4] == lastClick && textBlock != lastTextBlockClicked)
+            {
+               textBlock.Text = randomAnimalList[Grid.GetColumn(textBlock) + Grid.GetRow(textBlock) * 4];
+               await Task.Delay(500);
+               textBlock.Visibility = Visibility.Collapsed;
+               lastTextBlockClicked.Visibility = Visibility.Collapsed;
+               findingMatch = false;
+               matchesFound++;
+               pointTextBlock.Text = matchesFound.ToString();
+            }
+            else
+            {
+               textBlock.Text = randomAnimalList[Grid.GetColumn(textBlock) + Grid.GetRow(textBlock) * 4];
+               await Task.Delay(500);
+               lastTextBlockClicked.Text = "?";
+               textBlock.Text = "?";
+               findingMatch = false;
+            }
             await Task.Delay(100);
-            findingMatch = true;
-         }
-         else if (randomAnimalList[Grid.GetColumn(textBlock) + Grid.GetRow(textBlock) * 4] == lastClick && textBlock != lastTextBlockClicked)
-         {
-            textBlock.Text = randomAnimalList[Grid.GetColumn(textBlock) + Grid.GetRow(textBlock) * 4];
-            await Task.Delay(500);
-            textBlock.Visibility = Visibility.Collapsed;
-            lastTextBlockClicked.Visibility = Visibility.Collapsed;
-            findingMatch = false;
-            matchesFound++;
-            pointTextBlock.Text = matchesFound.ToString();
-         }
-         else
-         {
-            textBlock.Text = randomAnimalList[Grid.GetColumn(textBlock) + Grid.GetRow(textBlock) * 4];
-            await Task.Delay(500);
-            lastTextBlockClicked.Text = "?";
-            textBlock.Text = "?";
-            findingMatch = false;
+            canClick = true;
          }
       }
-
       private void TimeTextBlock_Tapped(object sender, TappedRoutedEventArgs e)
       {
          if (matchesFound == 8 || matchesFound == 0)
          {
+            gameStartButtonClicked = true;
             SetUpGame();
          }
       }
